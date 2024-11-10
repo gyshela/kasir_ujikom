@@ -28,7 +28,7 @@ $npet = $dtpetugas['nama_petugas'];
 
 <body style="padding:5px 10px; width:3.75in; font:9pt 'consolas';">
 	<center>
-		<h2>CAFFEE KITA</h2>
+		<h2>COFFEE KITA</h2>
 		Jl. Violetta No. 04 Sweet Italy<br>New York<br>
 		Telp. 089673631234 <br><br>
 	</center>

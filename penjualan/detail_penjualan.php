@@ -20,6 +20,26 @@ if (isset($_GET['penid'])) {
 		<title>Daftar Produk</title>
 		<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
 	</head>
+	<style>
+		body {
+			font-size: medium;
+			font-family: 'Merriweather', serif;
+			/**/
+
+		}
+
+		/* Baris ganjil: Coklat muda pudar (mendekati putih) */
+		.table-striped tbody tr:nth-of-type(odd) {
+			background-color: rgba(240, 228, 215, 0.6);
+			/* Coklat muda mendekati putih, lebih pudar */
+		}
+
+		/* Baris genap: Coklat sangat pudar (lebih mendekati putih) */
+		.table-striped tbody tr:nth-of-type(even) {
+			background-color: rgba(240, 228, 215, 0.3);
+			/* Coklat sangat pudar, lebih mendekati putih */
+		}
+	</style>
 
 	<body>
 		<?php include "../header.php" ?>

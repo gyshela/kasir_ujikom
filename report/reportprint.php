@@ -17,7 +17,7 @@ if (isset($_GET['tgl'])) {
 		<section class="sheet">
 			<center>
 				<br>
-				<h2 style="margin:0px">CAFFEE KITA</h2>
+				<h2 style="margin:0px">COFFEE KITA</h2>
 				Jl. Violetta No. 04 Sweet Italy<br>New York<br>
 				Telp. 089673631234 <br><br>
 				<?php

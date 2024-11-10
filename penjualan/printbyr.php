@@ -36,11 +36,11 @@ if (isset($_SESSION['penid'])) {
 		<section class="sheet">
 			<center>
 				<br>
-				<h2 style="margin:0px">CAFFEE KITA</h2>
+				<h2 style="margin:0px">COFFEE KITA</h2>
 				Jl. Violetta No. 04 Sweet Italy<br>New York<br>
 				Telp. 089673631234 <br>
 			</center>
-			<?php echo str_repeat("=", 51) ?>
+			<?php echo str_repeat("=", 35) ?>
 			<table width="100%" cellspacing="0">
 				<tr>
 					<td style="padding:2px 5px;">Tgl : <?= $tgl ?></td>
@@ -55,7 +55,7 @@ if (isset($_SESSION['penid'])) {
 					<td style="padding:2px 5px;">Kasir : <?= $npet ?></td>
 				</tr>
 			</table>
-			<?php echo str_repeat("-", 51) ?>
+			<?php echo str_repeat("-", 35) ?>
 			<table width="100%" cellspacing="0">
 				<?php
 				include "../config.php";
@@ -88,7 +88,7 @@ if (isset($_SESSION['penid'])) {
 			<table width="100%" cellspacing="0">
 				<tr>
 					<td colspan="3">
-						<?= str_repeat("-", 51) ?>
+						<?= str_repeat("-", 35) ?>
 					</td>
 				</tr>
 				<tr>
@@ -114,7 +114,7 @@ if (isset($_SESSION['penid'])) {
 				}
 				?>
 			</table>
-			<?= str_repeat("-", 51) ?>
+			<?= str_repeat("-", 35) ?>
 			<br>
 			<center>
 				Terima Kasih atas Kunjungan Anda <br>

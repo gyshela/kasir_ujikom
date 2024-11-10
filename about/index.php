@@ -159,7 +159,7 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
         <main class="container border py-3">
             <section class="team-section"><br>
                 <h2>Aplikasi Ini Dibuat Oleh:</h2>
-
+                <h4>KELOMPOK 3</h4><br>
                 <div class="team-container">
                     <div class="team-member">
                         <img src="../img/gisel.jpeg" alt="Gyshela Shalwa Moulidyna">
@@ -205,7 +205,8 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
                     </div>
 
                 </div>
-                <br>
+                <br><br>
+
                 <h4>12 RPL 3</h4>
                 <h3>SMK NEGERI 1 KADIPATEN</h3>
             </section>

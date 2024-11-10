@@ -17,6 +17,19 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
 		<title>Daftar Petugas</title>
 		<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
 	</head>
+	<style>
+		/* Baris ganjil: Coklat muda pudar (mendekati putih) */
+		.table-striped tbody tr:nth-of-type(odd) {
+			background-color: rgba(240, 228, 215, 0.6);
+			/* Coklat muda mendekati putih, lebih pudar */
+		}
+
+		/* Baris genap: Coklat sangat pudar (lebih mendekati putih) */
+		.table-striped tbody tr:nth-of-type(even) {
+			background-color: rgba(240, 228, 215, 0.3);
+			/* Coklat sangat pudar, lebih mendekati putih */
+		}
+	</style>
 
 	<body>
 		<?php include "../header.php" ?>
@@ -103,7 +116,7 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
 								<div class="modal-content">
 
 									<!-- Modal Header -->
-									<div class="modal-header">
+									<div class="modal-header text-white" style="background-color:rgb(30, 18, 11);">
 										<h3 class="modal-title">Edit Data Petugas</h3>
 										<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
 									</div>
@@ -167,7 +180,8 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
 
 											<!-- Modal footer -->
 											<div class="modal-footer">
-												<button type="submit" class="btn btn-primary" name="save">Simpan</button>
+												<button type="submit" class="btn text-white" name="save"
+													style="background-color:rgb(30, 18, 11);">Simpan</button>
 												<button type="button" class="btn btn-danger"
 													data-bs-dismiss="modal">Batal</button>
 											</div>
@@ -239,7 +253,7 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
 					<div class="modal-content">
 
 						<!-- Modal Header -->
-						<div class="modal-header">
+						<div class="modal-header text-white" style="background-color:rgb(30, 18, 11);">
 							<h3 class="modal-title">Input Data Petugas</h3>
 							<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
 						</div>
@@ -285,7 +299,8 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['password'])) {
 
 							<!-- Modal footer -->
 							<div class="modal-footer">
-								<button type="submit" class="btn btn-primary" name="save">Simpan</button>
+								<button type="submit" class="btn text-white" name="save"
+									style="background-color:rgb(30, 18, 11);">Simpan</button>
 								<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
 							</div>
 						</form>

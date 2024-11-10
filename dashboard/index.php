@@ -100,6 +100,11 @@ $total_barang_terjual = $row['total_barang_terjual'];
             align-items: center;
         }
 
+        .pie-chart-container .chart-container {
+            width: 73%;
+            /* Ubah width sesuai dengan ukuran yang diinginkan */
+        }
+
         .legend-list {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -188,9 +193,11 @@ $total_barang_terjual = $row['total_barang_terjual'];
             }
         });
 
-        // Data untuk pie chart produk terjual
+        // Data dan konfigurasi pie chart
         const charts = document.getElementById('Charts').getContext('2d');
         const grafiks = <?= $json_produk; ?>;
+        const originalData = grafiks.map(item => item.jumlah);
+
         const pieChart = new Chart(charts, {
             type: 'pie',
             data: {
@@ -205,6 +212,7 @@ $total_barang_terjual = $row['total_barang_terjual'];
                         'rgb(102, 67, 67)',
                         'rgb(236, 177, 118)',
                         'rgb(254, 216, 177)',
+                        'rgb(254, 225, 190)',
                         'rgb(214, 192, 179)',
                     ],
                     label: 'Jumlah Terjual',
@@ -212,22 +220,46 @@ $total_barang_terjual = $row['total_barang_terjual'];
                 }]
             },
             options: {
+                animation: {
+                    animateRotate: true,
+                    duration: 1000,
+                },
                 plugins: {
                     legend: {
                         display: false
+                    },
+                    tooltip: {
+                        enabled: true
                     }
-                }
+                },
+                // Tambahkan hover offset untuk efek pop-out
+                hoverOffset: 10
             }
         });
 
+
+        // Tambahkan interaksi pada legenda
         const legendList = document.getElementById('legendList');
         grafiks.forEach((item, index) => {
             const color = pieChart.data.datasets[0].backgroundColor[index];
             const listItem = document.createElement('li');
-            listItem.innerHTML = `<div class="legend-color-box" style="background-color:${color};"></div>${item.nama_produk}`;
+            listItem.innerHTML = `<div class="legend-color-box" style="background-color:${color};"></div><span>${item.nama_produk}</span>`;
+            listItem.style.cursor = "pointer";
+            listItem.onclick = function () {
+                const textElement = listItem.querySelector('span');
+                textElement.style.textDecoration = textElement.style.textDecoration === 'line-through' ? 'none' : 'line-through';
+
+                if (pieChart.data.datasets[0].data[index] !== 0) {
+                    pieChart.data.datasets[0].data[index] = 0;
+                } else {
+                    pieChart.data.datasets[0].data[index] = originalData[index];
+                }
+                pieChart.update();
+            };
             legendList.appendChild(listItem);
         });
     </script>
+
 </body>
 
 </html>

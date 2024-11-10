@@ -10,7 +10,7 @@ td { font-size:10px; }
 }
 
 /** Paper sizes **/
-body.struk .sheet { width: 80mm; }
+body.struk .sheet { width: 56mm; }
 body.struk .sheet { padding: 2mm; }
 
 .txt-left { text-align: left;}
@@ -30,7 +30,7 @@ body.struk .sheet { padding: 2mm; }
 /** Fix for Chrome issue #273306 **/
 @media print {
     body { font-family: monospace; }
-    body.struk                 { width: 80mm; text-align: left;}
+    body.struk                 { width: 56mm; text-align: left;}
     body.struk .sheet          { padding: 2mm; }
     .txt-left { text-align: left;}
     .txt-center { text-align: center;}

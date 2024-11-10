@@ -18,6 +18,19 @@ if (!isset($_SESSION['penid'])) {
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
 	<link href="../img/logo.png" rel='shortcut icon'>
 </head>
+<style>
+	/* Baris ganjil: Coklat muda pudar (mendekati putih) */
+	.table-striped tbody tr:nth-of-type(odd) {
+		background-color: rgba(240, 228, 215, 0.6);
+		/* Coklat muda mendekati putih, lebih pudar */
+	}
+
+	/* Baris genap: Coklat sangat pudar (lebih mendekati putih) */
+	.table-striped tbody tr:nth-of-type(even) {
+		background-color: rgba(240, 228, 215, 0.3);
+		/* Coklat sangat pudar, lebih mendekati putih */
+	}
+</style>
 
 <body>
 	<?php include "../header.php" ?>
@@ -47,22 +60,21 @@ if (!isset($_SESSION['penid'])) {
 						} else {
 							?>
 							<form class="d-flex" method="POST" action="pelanggan_simpan.php">
-								<input list="id_pelanggan" id="ip" name="ip" autocomplete="off" required
-									placeholder="Pelanggan" class="form-control me-2" />
-								<datalist id="id_pelanggan">
+								<select id="ip" name="ip" required placeholder="Pelanggan" class="form-select me-2">
+									<option value="" hidden selected>Pelanggan</option>
 									<?php
 									include "../config.php";
 									$sqlpl = "select * from pelanggan";
 									$respl = mysqli_query($koneksi, $sqlpl);
 									while ($dtl = mysqli_fetch_array($respl)) {
 										?>
-										<option value="<?= $dtl['id_pelanggan'] ?>"><?= $dtl['kode_pelanggan'] ?> |
-											<?= $dtl['nama_pelanggan'] ?> Hp. <?= $dtl['no_hp'] ?>
+										<option value="<?= $dtl['id_pelanggan'] ?>">
+											<?= $dtl['nama_pelanggan'] ?>
 										</option>
 										<?php
 									}
 									?>
-								</datalist>
+								</select>
 								<button class="btn text-white" type="submit" name="save"
 									style="background-color:rgb(30, 18, 11);">Simpan</button>
 							</form>
@@ -89,9 +101,8 @@ if (!isset($_SESSION['penid'])) {
 									<?php
 								} else {
 									?>
-									<input list="kode_produk" id="kp" name="kp" autocomplete="off" required
-										placeholder="Kode Produk" class="form-control me-2" />
-									<datalist id="kode_produk">
+									<select id="kp" name="kp" class="form-select me-2" required>
+										<option value="" hidden selected>Produk</option>
 										<?php
 										include "../config.php";
 										$sqlp = "select * from produk";
@@ -99,12 +110,11 @@ if (!isset($_SESSION['penid'])) {
 										while ($dt = mysqli_fetch_array($resp)) {
 											?>
 											<option value="<?= $dt['kode_produk'] ?>"><?= $dt['nama_produk'] ?> |
-												<?= $dt['harga'] ?>
-											</option>
+												<?= $dt['harga'] ?></option>
 											<?php
 										}
 										?>
-									</datalist>
+									</select>
 
 
 									<?php
@@ -186,8 +196,8 @@ if (!isset($_SESSION['penid'])) {
 										<div class="modal-content">
 
 											<!-- Modal Header -->
-											<div class="modal-header">
-												<h3 class="modal-title">Edit Data Penjualan</h3>
+											<div class="modal-header" style="background-color:rgb(30, 18, 11);">
+												<h3 class="modal-title text-white">Edit Data Penjualan</h3>
 												<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
 											</div>
 											<form method="POST" action="update.php">
@@ -235,8 +245,8 @@ if (!isset($_SESSION['penid'])) {
 
 												<!-- Modal footer -->
 												<div class="modal-footer">
-													<button type="submit" class="btn btn-primary"
-														name="save">Simpan</button>
+													<button type="submit" class="btn text-white" name="save"
+														style="background-color:rgb(30, 18, 11);">Simpan</button>
 													<button type="button" class="btn btn-danger"
 														data-bs-dismiss="modal">Batal</button>
 												</div>
@@ -256,9 +266,7 @@ if (!isset($_SESSION['penid'])) {
 						</tbody>
 						<tfoot>
 							<?php
-							if (isset($jmltotal)) {
-								$jmltotal = $jmltotal;
-							} else {
+							if (!isset($jmltotal)) {
 								$jmltotal = 0;
 							}
 							?>
@@ -334,7 +342,8 @@ if (!isset($_SESSION['penid'])) {
 					<div class="row">
 						<div class="col">
 							<div class="d-grid">
-								<a href="selesai.php" class="btn btn-primary btn-block btn-lg">Selesai</a>
+								<a href="selesai.php" class="btn text-white btn-block btn-lg"
+									style="background-color:rgb(30, 18, 11);">Selesai</a>
 							</div>
 						</div>
 						<div class="col">
